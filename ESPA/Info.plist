@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>CFBundleDisplayName</key>
+	<string>ESPA</string>
+	<key>CFBundleExecutable</key>
+	<string>$(EXECUTABLE_NAME)</string>
+	<key>CFBundleIdentifier</key>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>$(PRODUCT_NAME)</string>
+	<key>CFBundlePackageType</key>
+	<string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0.0</string>
+	<key>CFBundleVersion</key>
+	<string>1</string>
+	<key>LSRequiresIPhoneOS</key>
+	<true/>
+	<key>UIApplicationSceneManifest</key>
+	<dict>
+		<key>UIApplicationSupportsMultipleScenes</key>
+		<false/>
+	</dict>
+	<key>UILaunchScreen</key>
+	<dict>
+		<key>UIColorName</key>
+		<string></string>
+		<key>UIImageName</key>
+		<string></string>
+	</dict>
+	<key>UIRequiredDeviceCapabilities</key>
+	<array>
+		<string>armv7</string>
+	</array>
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+	</array>
+	<key>UISupportedInterfaceOrientations~ipad</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>UIStatusBarStyle</key>
+	<string>UIStatusBarStyleDefault</string>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<true/>
+
+	<!-- App-specific keys -->
+	<!-- KakaoMapsSDK (native) — used by SDKInitializer in ESPAApp.swift -->
+	<key>KAKAO_NATIVE_APP_KEY</key>
+	<string>$(KAKAO_NATIVE_APP_KEY)</string>
+	<!-- Kakao Local REST API — used by KakaoService.swift -->
+	<key>KAKAO_REST_API_KEY</key>
+	<string>$(KAKAO_REST_API_KEY)</string>
+	<!-- ESPA backend base URL — read by APIService -->
+	<key>ESPA_API_BASE_URL</key>
+	<string>$(ESPA_API_BASE_URL)</string>
+
+	<!-- Permission usage descriptions -->
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>폐어망 사진을 분석하기 위해 사진 라이브러리 접근이 필요합니다.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>현장에서 폐어망을 촬영하여 분석하기 위해 카메라 접근이 필요합니다.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>가까운 거점을 표시하기 위해 위치 정보가 필요합니다.</string>
+
+	<!-- App Transport Security
+	     - Kakao Maps tile servers (HTTP)
+	     - Dev backend on localhost (Simulator) or on private subnet via Personal Hotspot
+	       (e.g. http://172.20.10.2:8000). NSAllowsLocalNetworking covers:
+	         · loopback (127.0.0.1, ::1)
+	         · *.local mDNS hostnames
+	         · RFC1918 private subnets (10/8, 172.16/12, 192.168/16)
+	       → Hotspot IPs (172.20.10.x) are already permitted by this flag alone.
+	     - If demoing on a non-private network (rare), temporarily flip
+	       NSAllowsArbitraryLoads to <true/>. Do NOT ship that to TestFlight/App Store. -->
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<!-- DEMO ONLY: arbitrary loads enabled so iPhone-tethering 192.0.0.x
+		     range (not in RFC1918) can reach the dev backend. Revert to <false/>
+		     before any TestFlight / App Store build. -->
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+		<key>NSAllowsLocalNetworking</key>
+		<true/>
+		<key>NSExceptionDomains</key>
+		<dict>
+			<key>daumcdn.net</key>
+			<dict>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+			</dict>
+			<key>kakao.com</key>
+			<dict>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+			</dict>
+			<key>localhost</key>
+			<dict>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+			</dict>
+		</dict>
+	</dict>
+</dict>
+</plist>
