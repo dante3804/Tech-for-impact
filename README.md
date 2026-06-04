@@ -25,7 +25,7 @@ FastAPI 백엔드 서버
 YOLOv11 Instance Segmentation
         ↓  봉투 개수 카운팅
 HRI 수식 계산
-  HRI = (BagCount × 25kg × 0.985) × TimeDays × WeatherScore × ProximityScore
+ HRI = (BagCount × 25kg × 0.985) × TimeDays × WeatherScore × ProximityScore
         ↓
 PostgreSQL + PostGIS
         ↓
@@ -191,12 +191,12 @@ HRI = (BagCount × W_avg × correction) × TimeDays × WeatherScore × Proximity
 
 ## 🗺 로드맵
 
-- [v] Next.js 웹 대시보드 MVP 구현
-- [v] YOLOv11 모델 학습 (mAP 66.7%)
-- [v] FastAPI 백엔드 + HRI 계산 엔진
-- [v] Kakao Map 거점 시각화
-- [v] iOS 앱 개발 (진행 중)
-- [v] TensorRT 모델 최적화
+- [x] Next.js 웹 대시보드 MVP 구현
+- [x] YOLOv11 모델 학습 (mAP 66.7%)
+- [x] FastAPI 백엔드 + HRI 계산 엔진
+- [x] Kakao Map 거점 시각화
+- [ ] iOS 앱 개발 (진행 중)
+- [ ] TensorRT 모델 최적화
 - [ ] Jetson Orin Nano 현장 배포
 - [ ] DeepStream 실시간 파이프라인
 - [ ] AWS 프로덕션 배포
